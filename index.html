@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agrinho 2026 | Calculadora de Sementes 🌱</title>
+  <!-- Vincula o arquivo CSS externo -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Calculadora de Sementes</h1>
+    <div class="subtitle">Projeto Especial: Agrinho 2026</div>
+    
+    <!-- Formulário da Calculadora -->
+    <div class="form-group">
+      <label for="area">Área do terreno (m²):</label>
+      <input type="number" id="area" placeholder="Ex: 500">
+    </div>
+
+    <div class="form-group">
+      <label for="densidade">Sementes por m²:</label>
+      <input type="number" id="densidade" placeholder="Ex: 20">
+    </div>
+
+    <button onclick="calcular()">Calcular Quantidade</button>
+
+    <p id="resultado"></p>
+
+    <!-- Seção de Fotos Agrinho 2026 -->
+    <h2 class="galeria-titulo">Galeria do Projeto Agrinho 2026</h2>
+    <div class="galeria">
+      <div class="foto-card">
+        <img src="https://unsplash.com" alt="Inovação no campo">
+        <p>Inovação e Tecnologia</p>
+      </div>
+      <div class="foto-card">
+        <img src="https://unsplash.com" alt="Pesquisa de sementes">
+        <p>Análise de Solo</p>
+      </div>
+      <div class="foto-card">
+        <img src="https://unsplash.com" alt="Cultivos agrícolas">
+        <p>Produção Sustentável</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function calcular() {
+      const area = parseFloat(document.getElementById("area").vahtmllue);
+      const densidade = parseFloat(document.getElementById("densidade").value);
+      const resultado = document.getElementById("resultado");
+
+      resultado.textContent = "";
+      resultado.style.backgroundColor = "transparent";
+
+      if (isNaN(area) || isNaN(densidade) || area <= 0 || densidade <= 0) {
+        resultado.textContent = "Por favor, insira valores válidos e maiores que zero.";
+        resultado.style.color = "#dc2626";
+        return;
+      }
+
+      const total = area * densidade;
+      resultado.textContent = `Você precisa de ${total.toLocaleString('pt-BR')} sementes para o projeto.`;
+
+      if (total > 1000) {
+        resultado.style.color = "#b91c1c";
+        resultado.style.backgroundColor = "#fee2e2";
+      } else {
+        resultado.style.color = "#1e40af";
+        resultado.style.backgroundColor = "#dbeafe";
+      }
+    }
+  </script>
+
+</body>
+</html>
